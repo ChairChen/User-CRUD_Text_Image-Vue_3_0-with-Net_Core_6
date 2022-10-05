@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&display=swap');
+body {
+    font-family: monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    background: #ece6d9;
+}
+::-webkit-scrollbar { /*width*/
+    width: 1em;
+}
+::-webkit-scrollbar-track { /* Track */
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb { /* Handle */
+    background: #BC8F8F;
+    border-radius: 10px;
+}
+    ::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+        background: #9F6060;
+    }
+.Reference {
+    margin-top: 5%;
+    font-size: 1.5vw;
+    position: relative;
+    bottom: 0;
+    margin-bottom: 100px;
+}
+.FixedBar {
+    font-size: 1.5vw;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(236, 230, 218);
+    -webkit-box-shadow: 0px -20px 30px rgba(236, 230, 218,0.8);
+    -moz-box-shadow: 0px -20px 30px rgba(236, 230, 218,0.8);
+    box-shadow: 0px -20px 30px rgba(236, 230, 218,0.8);
+}
+.TitleBar {
+    font-size: 3vw;
+    margin-bottom: 3%;
+    padding: 10px;
+    width: 100%;
+    top: 0;
+    background-color: rgb(236, 230, 218);
+    -webkit-box-shadow: 0px 20px 30px rgba(236, 230, 218,0.8);
+    -moz-box-shadow: 0px 20px 30px rgba(236, 230, 218,0.8);
+    box-shadow: 0px 20px 30px rgba(236, 230, 218,0.8);
+}
+.SubTitleBar {
+    border-radius: 10em;
+    width: 100%;
+    vertical-align: middle;
+    height: fit-content;
+    font-size: 3vw;
+    margin-bottom: 3%;
+    padding: 2%;
+    cursor: pointer;
+    background-color: rgb(236, 230, 218, 0.3);
+    -webkit-box-shadow: 0.7vw 0.3vw 1vw #A9A9A9 inset;
+    -moz-box-shadow: 0.7vw 0.3vw 1vw #A9A9A9 inset;
+    box-shadow: 0.7vw 0.3vw 1vw #A9A9A9 inset;
+    transition: all 0.5s ease-in-out;
+}
+    .SubTitleBar:hover {
+        color: #008B8B;
+        background-color: rgb(236, 230, 218, 0.8);
+        -webkit-box-shadow: 0.7vw 0.5vw 1vw #5F9EA0 inset;
+        -moz-box-shadow: 0.3vw 0.5vw 1vw #5F9EA0 inset;
+        box-shadow: 0.3vw 0.5vw 2vw #5F9EA0 inset;
+    }
+.UserInfo {
+    margin: 2%;
+    font-size: 1.3vw;
+}
+.En {
+    font-family: "Sofia", Avenir, Helvetica, Arial, sans-serif, monospace;
+    letter-spacing: 5px;
+}
+.Ch {
+    font-family: "Noto Sans TC", Microsoft YaHei, DFKai-SB,cursive;
+    letter-spacing: 2px;
+}
+img {
+    height: 30vh;
+    width: 20vw;
+}
+/*container*/
+.ContentBlock {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.HoriContainer {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+}
+/*file drop area*/
+.FileGroup {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+}
+
+.FileDisplayBorderBlock {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(225, 244, 244);
+    display: none;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ImageCancelIcon {
+    width: 8%;
+    cursor: pointer;
+    font-size: 3vw;
+    color: #DB7093;
+    transition: all 0.2s ease;
+}
+
+.ImageCancelIcon:hover {
+    color: crimson;
+}
+
+.SingleFileDisplayBlock {
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+    .SingleFileDisplayBlock img {
+        margin: 2% 2% 2% 0;
+        padding: 0 0 0 0;
+        border: 0.4vw inset #FF6347;
+        height: 70%;
+        width: 90%;
+    }
+    .SingleFileDisplayBlock .ImgInfo {
+        font-size: 2vw;
+        color: DimGrey;
+        font-family:  monospace, Avenir, Helvetica, Arial, sans-serif;
+    }
+    .SingleFileDisplayBlock .ImgFrame {
+        margin: 2%;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        min-width: 20vw;
+        height: 80%;
+        align-items: center;
+    }
+
+    .FileDisplayBlock {
+        display: flex;
+        padding: 1%;
+        overflow-y: hidden;
+        overflow-x: auto;
+        height: 100%;
+        width: 100%;
+        border-radius: 2%;
+        background-color: rgb(225, 244, 244);
+        flex-direction: row;
+        align-items: center;
+    }
+    .FileDisplayBlock::-webkit-scrollbar {/*width*/
+        height: 1em;
+    }
+
+    .FileDisplayBlock::-webkit-scrollbar-track {/* Track */
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    .FileDisplayBlock::-webkit-scrollbar-thumb { /* Handle */
+        background: #66CDAA;
+        border-radius: 10px;
+    }
+        .FileDisplayBlock::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+            background: #20B2AA;
+        }
+    .FileDisplayBlock .ImgInfo {
+        font-size: 2vw;
+        color: DimGrey;
+        font-family: "Sofia", Avenir, Helvetica, Arial, sans-serif, monospace;
+    }
+    .FileDisplayBlock img {
+        margin: 5% 2% 0 0;
+        padding: 0 0 0 0;
+        border: 0.4vw inset #A9A9A9;
+        height: 70%;
+        width: 90%;
+    }
+    .FileDisplayBlock .ImgFrame {
+        margin: 2%;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        min-width: 20vw;
+        height: 80%;
+        align-items: center;
+    }
+
+    .FileBorderBlock {
+        border: 0.3vw dashed #008B8B;
+        height: 32vh;
+        width: 64vw;
+        border-radius: 2%;
+        background: #FCFCFC;
+    }
+    .FileBorderBlock .FileUploadBlock {
+        color: #008B8B;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        padding: 0 1% 1% 0;
+    }
+        .FileBorderBlock .FileUploadBlock .FileUploadBlockDesc {
+            display: none;
+            font-size: 1.5vw;
+            position: absolute;
+        }
+        .FileBorderBlock .FileUploadBlock #PostFiles {
+            cursor: pointer;
+            z-index: 1;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            border: 2px solid black;
+        }
+    .FileBorderBlock .FileUploadBlockDesc .ChooseTest {
+        color: #008B8B;
+        font-size: 1.5vw;
+        font-weight: bold;
+    }
+.FileBorderBlock:hover .FileUploadBlockDesc .ChooseTest {
+    font-size: 1.6vw;
+    color: #00BDBD;
+}
+/*spinner*/
+.spinnerGrop {
+    z-index: 3; /* ³Ì¤W¼h*/
+    top: 50%;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    justify-content: center;
+    display: none;
+}
+/*background cloud animation*/
+.BackgroundCloud {
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 95%;
+    position: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.clouds img {
+    height: 5%;
+    width: 10%;
+    opacity: 0;
+    -webkit-animation-name: cloud;
+    animation-name: cloud;
+    -webkit-animation-duration: 6s;
+    animation-duration: 6s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.clouds {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+    .clouds img:nth-child(1) {
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+
+    .clouds img:nth-child(2) {
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+
+    .clouds img:nth-child(3) {
+        -webkit-animation-delay: 5s;
+        animation-delay: 5s;
+    }
+
+    .clouds img:nth-child(4) {
+        -webkit-animation-delay: 1.5s;
+        animation-delay: 1.5s;
+    }
+
+    .clouds img:nth-child(5) {
+        -webkit-animation-delay: 3.5s;
+        animation-delay: 3.5s;
+    }
+
+    .clouds img:nth-child(6) {
+        -webkit-animation-delay: 1.9s;
+        animation-delay: 1.9s;
+    }
+
+    .clouds img:nth-child(7) {
+        -webkit-animation-delay: 3s;
+        animation-delay: 3s;
+    }
+
+    .clouds img:nth-child(8) {
+        -webkit-animation-delay: 4.5s;
+        animation-delay: 4.5s;
+    }
+
+    .clouds img:nth-child(9) {
+        -webkit-animation-delay: 1.2s;
+        animation-delay: 1.2s;
+    }
+
+    .clouds img:nth-child(10) {
+        -webkit-animation-delay: 6s;
+        animation-delay: 6s;
+    }
+
+@keyframes cloud {
+    0% {
+        transform: translateX(-80vw);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.5;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0.5;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(-10vw);
+        opacity: 0;
+    }
+}
+/*accordion bar: content*/
+hr {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+.ExecuteBtn {
+    font-size: 1vw;
+    font-weight: bold;
+    width: 95%;
+}
+.Para {
+    margin: 2%;
+    width: inherit;
+}
+.Resp {
+    height: auto;
+    margin: 2%;
+    width: inherit;
+}
+.ErrorMsg {
+    color: #D63333;
+    font-size: 2vw;
+    font-weight: bold;
+}
+.RespText {
+    color: #008B8B;
+    font-size: 2vw;
+    font-weight: bold;
+}
+.RespMsg {
+    display: none;
+    font-size: 1.3vw;
+    text-align: left;
+    color: antiquewhite;
+    padding: 5%;
+    height: auto;
+    width: inherit;
+    border-radius: 5em;
+    background-color: rgb(13, 17, 21, 0.8);
+}
+.RespImg {
+    display: none;
+    font-size: 1.3vw;
+    color: antiquewhite;
+    padding: 5%;
+    border-radius: 5em;
+    background-color: rgb(13, 17, 21, 0.8);
+}
+    .RespImg img {
+        padding: 0 0 0 0;
+        border: 0.4vw groove #CFCFCF;
+        max-height: 40%;
+        width: 100%;
+    }
+    .RespImg .ImgBlock {
+        display: inline-block;
+        width: 40%;
+        margin: 2%;
+        box-shadow: 0.7vw 0.5vw 1vw black inset;
+    }
+    .RespImg .ImgFrame {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .RespImg .ImgInfo{
+        font-size: 1.5vw;
+        width: 100%;
+        border: 0.4vw groove #CFCFCF;
+    }
+
+.Thead {
+    font-size: 1.3vw;
+}
+.Tbody {
+    margin-bottom: 2%;
+    font-size: 1vw;
+}
+.BigSpinner {
+    margin: 2%;
+    width:5vw;
+    height:10vh;
+}
+.ParaLabel {
+    height: 2%;
+    width: fit-content;
+    padding: 1%;
+}
+.ParaInput {
+    height: 2%;
+    width: 20%;
+    padding: 1.05%;
+}
+.ParaButton {
+    opacity: 0.5;
+    border-radius: 10em;
+    pointer-events: none;
+    font-weight: bolder;
+    font-size: 1.1vw;
+    background-color: rgb(255, 99, 71);
+    padding: 0.5% 0% 0.5% 0%;
+    
+}
+    .ParaButton:hover {
+        background: #D11F00;
+    }
+/*self define: accrodion style*/
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div.accordion {
+    position: relative;
+    margin: 2em;
+}
+
+.ActionText {
+    width: 100%;
+    font-size: 2vw;
+    border-radius: 30em;
+    color: white;
+    padding: 1em;
+    position: relative;
+}
+
+input[type=checkbox] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+label::before {
+    content: "";
+    display: inline-block;
+    border: 15px solid transparent;
+    border-left: 20px solid white;
+}
+
+label {
+    overflow-x: hidden;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+div.p {
+    margin-top: 1%;
+    border-radius: 5em;
+    max-height: 0px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+div.p p{
+    padding: 2em;
+}
+
+
+input[type=checkbox]:checked ~ .ActionText label::before {
+    border-left: 15px solid transparent;
+    border-top: 20px solid white;
+    margin-top: 12px;
+    margin-right: 10px;
+}
+
+input[type=checkbox]:checked ~ .ActionText ~ div.p {
+    padding: 1em;
+    margin-top: 1%;
+    max-height: fit-content;
+    border-radius: 5em;
+}
+
+    input[type=checkbox]:checked ~ .ActionText ~ div.p .Para .FileGroup .FileBorderBlock .FileUploadBlock .FileUploadBlockDesc {
+        display: block;
+    }
+
+span.URLText {
+    overflow-x: hidden;
+    letter-spacing: 2px;
+    font-size: 70%;
+    color: black;
+    background: white;
+    padding: 1px 8px 1px;
+    border-radius: 50em;
+}
